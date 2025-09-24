@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Sena Yennyfer Denisse</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .title {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .contact-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .about-text {
+            font-size: 1.1em;
+            text-align: justify;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .experience-item, .education-item, .project-item {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover, .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .item-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .item-subtitle {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .item-description {
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+        }
+
+        .skill-name {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .skill-level {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .language-item {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .language-item:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .cv-container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <h1>Sena Yennyfer Denisse</h1>
+            <div class="title">Preceptor</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📧</i>
+                    <span>yennyferdenisse@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i>📱</i>
+                    <span>3764921709</span>
+                </div>
+                <div class="contact-item">
+                    <i>📍</i>
+                    <span>Posadas, Misiones - Itaembé Guazú</span>
+                </div>
+                <div class="contact-item">
+                    <i>💻</i>
+                    <span>GitHub: yennyferdenisse</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <section class="section">
+                <h2 class="section-title">Sobre Mí</h2>
+                <div class="about-text">
+                    Soy una persona amable y responsable con excelente trato interpersonal y gran capacidad empática. Me caracterizo por mi puntualidad y cumplimiento de horarios, cualidades esenciales para el rol de preceptor. Mi compromiso con la educación y mi habilidad para conectar con estudiantes me permiten contribuir positivamente al ambiente educativo.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Experiencia Laboral</h2>
+                <div class="experience-item">
+                    <div class="item-title">Niñera</div>
+                    <div class="item-description">
+                        Experiencia en el cuidado y atención de niños, desarrollando habilidades de paciencia, responsabilidad y comunicación efectiva. Esta experiencia me ha permitido comprender las necesidades de los menores y desarrollar estrategias para su cuidado y bienestar.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Educación</h2>
+                <div class="education-item">
+                    <div class="item-title">Nivel Secundario</div>
+                    <div class="item-subtitle">Instituto Santa Catalina • 2019 • Posadas, Misiones</div>
+                    <div class="item-description">
+                        Educación secundaria completa que me proporcionó las bases académicas fundamentales para mi desarrollo profesional en el ámbito educativo.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Proyectos</h2>
+                <div class="project-item">
+                    <div class="item-title">Prácticas de Preceptor en Escuelas</div>
+                    <div class="item-subtitle">Tecnologías utilizadas: Computadoras, Celulares</div>
+                    <div class="item-description">
+                        Realicé tres semanas de prácticas dentro de una institución secundaria desempeñándome como preceptor. Durante este período utilicé planillas de control y me relacioné directamente con los estudiantes, culminando con la realización de un trabajo práctico final. Esta experiencia me permitió aplicar conocimientos teóricos en un entorno real y desarrollar competencias específicas del rol.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Habilidades Técnicas</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-name">Conferencista</div>
+                        <div class="skill-level">Habilidad Desarrollada</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Cocina Regional</div>
+                        <div class="skill-level">Conocimiento Especializado</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Idiomas</h2>
+                <div class="languages-list">
+                    <div class="language-item">Español - Nativo</div>
+                    <div class="language-item">Inglés - Básico</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
